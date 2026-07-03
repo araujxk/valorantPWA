@@ -1,0 +1,33 @@
+{
+  "short_name": "ValoLineups",
+  "name": "Valorant Tactical Lineups PWA",
+  "description": "Progressive Web App para visualização offline e registro de lineups em mapas e agentes do Valorant.",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=192&h=192&fit=crop&q=80",
+      "type": "image/jpeg",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=512&h=512&fit=crop&q=80",
+      "type": "image/jpeg",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090d16",
+  "theme_color": "#ff4655",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["utilities", "games"],
+  "shortcuts": [
+    {
+      "name": "Criar Lineup",
+      "short_name": "Criar",
+      "description": "Adicionar uma lineup nova ao repositório local",
+      "url": "/?openCreator=1"
+    }
+  ]
+}

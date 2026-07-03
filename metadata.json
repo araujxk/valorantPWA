@@ -1,0 +1,6 @@
+{
+  "name": "Valorant Lineups",
+  "description": "PWA de lineups de habilidades para o Valorant com suporte offline e busca inteligência.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

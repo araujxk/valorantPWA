@@ -1,0 +1,161 @@
+[
+  {
+    "id": "e98e2b0c-7b4d-4a1a-baa6-1dc3a2df3d8b",
+    "version": 1,
+    "agent": {
+      "id": "viper",
+      "name": "Viper",
+      "role": "controller",
+      "icon": "🐍"
+    },
+    "map": {
+      "id": "bind",
+      "name": "Bind",
+      "minimap": "https://media.valorant-api.com/maps/2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba/listviewicon.png"
+    },
+    "lineup": {
+      "title": "Toxic Screen B Site",
+      "description": "Tapa o visão da longa B e do Hookah, permitindo jogar recuado no site.",
+      "type": "retake",
+      "side": "defense",
+      "site": "B",
+      "ability": "toxic_screen",
+      "difficulty": "medium",
+      "tags": ["wall", "defesa", "site B"],
+      "media": {
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
+            "alt": "Posicionamento na B",
+            "type": "position"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?w=800&q=80",
+            "alt": "Mira parede B",
+            "type": "crosshair"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1620336655174-32f2f3fbe9d5?w=800&q=80",
+            "alt": "Resultado da Wall",
+            "type": "result"
+          }
+        ],
+        "video": {
+          "type": "youtube",
+          "videoId": "pZ12_E5R3qc",
+          "startSeconds": 10
+        },
+        "minimapMark": {
+          "x": 0.35,
+          "y": 0.65
+        }
+      }
+    }
+  },
+  {
+    "id": "6a9926f1-bbde-475a-a3aa-fb01c45c2f82",
+    "version": 1,
+    "agent": {
+      "id": "omen",
+      "name": "Omen",
+      "role": "controller",
+      "icon": "👻"
+    },
+    "map": {
+      "id": "haven",
+      "name": "Haven",
+      "minimap": "https://media.valorant-api.com/maps/2bee0dc9-4ffe-519b-1cbd-7fbe763a6047/listviewicon.png"
+    },
+    "lineup": {
+      "title": "Shrouded Step Garagem para C",
+      "description": "Usa o Shrouded Step para cruzar do conector da garagem diretamente para o Site C sem seres visto.",
+      "type": "execute",
+      "side": "attack",
+      "site": "C",
+      "ability": "shrouded_step",
+      "difficulty": "hard",
+      "tags": ["teleport", "agressivo", "site C"],
+      "media": {
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80",
+            "alt": "Posição na Garagem",
+            "type": "position"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1618331835717-801e976710b2?w=800&q=80",
+            "alt": "Onde colocar o teleport",
+            "type": "crosshair"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80",
+            "alt": "Chegada no C",
+            "type": "result"
+          }
+        ],
+        "video": {
+          "type": "youtube",
+          "videoId": "LXb3EKWsInQ",
+          "startSeconds": 45
+        },
+        "minimapMark": {
+          "x": 0.85,
+          "y": 0.35
+        }
+      }
+    }
+  },
+  {
+    "id": "f51e0642-f857-4ba3-ab01-2db47b8ebd7b",
+    "version": 1,
+    "agent": {
+      "id": "brimstone",
+      "name": "Brimstone",
+      "role": "controller",
+      "icon": "🔥"
+    },
+    "map": {
+      "id": "ascent",
+      "name": "Ascent",
+      "minimap": "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/listviewicon.png"
+    },
+    "lineup": {
+      "title": "Molly Default Post-Plant A",
+      "description": "Lança o molly de fora do Site A (A Main) diretamente para cobrir o default plant.",
+      "type": "post-plant",
+      "side": "attack",
+      "site": "A",
+      "ability": "incendiary",
+      "difficulty": "easy",
+      "tags": ["molly", "post-plant", "site A"],
+      "media": {
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=800&q=80",
+            "alt": "Posição na parede da A Main",
+            "type": "position"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1605280261300-47b2c5dc561d?w=800&q=80",
+            "alt": "Alinhamento com a nuvem",
+            "type": "crosshair"
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
+            "alt": "Fogo no gerador A",
+            "type": "result"
+          }
+        ],
+        "video": {
+          "type": "youtube",
+          "videoId": "pZ12_E5R3qc",
+          "startSeconds": 130
+        },
+        "minimapMark": {
+          "x": 0.85,
+          "y": 0.15
+        }
+      }
+    }
+  }
+]

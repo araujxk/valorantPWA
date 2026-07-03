@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Martel:wght@300;400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-merta: "Merta", "Marta", "Martel", "Lora", serif;
+}
+
+/* Global typography rule: Clean modern sans-serif "Inter" for everything */
+body, #valorant-lineups-app, p, input, select, textarea, li, .font-merta {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-merta, .font-merta * {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Titles/headings, buttons and tracking-heavy text keep the premium sans tech font "Inter" */
+h1, h2, h3, h4, h5, h6, 
+h3 *, 
+button, 
+.font-sans,
+.font-black,
+.font-extrabold,
+.tracking-widest,
+.tracking-wider,
+.uppercase,
+a, 
+footer {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* font-mono now uses Inter (same as sans) — JetBrains Mono only for actual code blocks */
+.font-mono {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif !important;
+  letter-spacing: 0.02em;
+}
+code, pre {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace !important;
+}
+
+/* Dark mode setup rules */
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Automatic global reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.4);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(239, 68, 68, 0.7);
+}
+
+/* Light theme overrides */
+.light-theme {
+  --theme-bg: #f8fafc; /* slate-50 */
+  --theme-text: #0f172a; /* slate-900 */
+  --theme-header-bg: rgba(255, 255, 255, 0.95);
+  --theme-card-bg: #ffffff;
+  --theme-border: rgba(226, 232, 240, 0.85); /* slate-200 */
+  --theme-subtext: #475569; /* slate-600 */
+  --theme-input-bg: #f1f5f9; /* slate-100 */
+  --theme-card-hover: #f1f5f9;
+}
+
+.light-theme,
+.light-theme #valorant-lineups-app {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+}
+
+.light-theme header {
+  background-color: var(--theme-header-bg) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+.light-theme header h1 {
+  color: var(--theme-text) !important;
+}
+
+.light-theme header p {
+  color: var(--theme-subtext) !important;
+}
+
+.light-theme #search-quick-actions,
+.light-theme #agent-operations-page .bg-slate-900,
+.light-theme .bg-slate-900,
+.light-theme #modal-card-body,
+.light-theme .bg-slate-900\/60,
+.light-theme div[id^="lineup-card-"] {
+  background-color: var(--theme-card-bg) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+.light-theme #main-app-search,
+.light-theme select,
+.light-theme .bg-slate-950,
+.light-theme select.bg-slate-950 {
+  background-color: var(--theme-input-bg) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text) !important;
+}
+
+.light-theme .text-slate-100 {
+  color: var(--theme-text) !important;
+}
+
+.light-theme .text-slate-200,
+.light-theme .text-slate-300,
+.light-theme .text-slate-400 {
+  color: var(--theme-subtext) !important;
+}
+
+.light-theme .border-slate-800,
+.light-theme .border-slate-800\/80 {
+  border-color: var(--theme-border) !important;
+}
+
+.light-theme #agents-home-gallery div[id^="agent-panel-"] {
+  background-color: var(--theme-card-bg) !important;
+  border-color: var(--theme-border) !important;
+}
+
+.light-theme #agents-home-gallery div[id^="agent-panel-"]:hover {
+  background-color: var(--theme-card-hover) !important;
+}
+
