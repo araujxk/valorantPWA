@@ -36,6 +36,7 @@ export interface LineupVideo {
 export interface MinimapMark {
   x: number; // 0 to 1 scaling relative to the minimap container width
   y: number; // 0 to 1 scaling relative to the minimap container height
+  angle?: number; // rotation in radians for line/cone overlays
 }
 
 export interface LineupMedia {

@@ -42,6 +42,7 @@ export default function LineupCreator({
 
   // Coordinates
   const [minimapMark, setMinimapMark] = useState({ x: 0.5, y: 0.5 });
+  const [minimapAngle, setMinimapAngle] = useState(0);
   
   // Error state
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
@@ -136,7 +137,7 @@ export default function LineupCreator({
             videoId: youtubeId.trim() || "dQw4w9WgXcQ", // Roll default safe YouTube link if empty
             startSeconds: 0
           },
-          minimapMark: minimapMark
+          minimapMark: { ...minimapMark, angle: minimapAngle }
         }
       }
     };
@@ -391,7 +392,9 @@ export default function LineupCreator({
                 src={MAPS_LIST.find(m => m.id === selectedMapId)?.minimapUrl || ''}
                 mapName={selectedMapId}
                 pin={minimapMark}
+                angle={minimapAngle}
                 onPinPlace={(x, y) => setMinimapMark({ x, y })}
+                onAngleChange={setMinimapAngle}
                 abilityId={selectedAbility}
                 className="aspect-square w-full"
               />

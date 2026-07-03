@@ -28,6 +28,7 @@ export const LineupVideoSchema = z.object({
 export const MinimapMarkSchema = z.object({
   x: z.number(),
   y: z.number(),
+  angle: z.number().optional(),
 });
 
 export const LineupMediaSchema = z.object({
