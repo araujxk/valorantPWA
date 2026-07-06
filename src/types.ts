@@ -43,6 +43,7 @@ export interface LineupMedia {
   images: LineupImage[];
   video?: LineupVideo;
   minimapMark: MinimapMark;
+  standMark?: MinimapMark;
 }
 
 export interface LineupDetails {

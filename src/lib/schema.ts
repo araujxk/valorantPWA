@@ -35,6 +35,7 @@ export const LineupMediaSchema = z.object({
   images: z.array(LineupImageSchema),
   video: LineupVideoSchema.optional(),
   minimapMark: MinimapMarkSchema,
+  standMark: MinimapMarkSchema.optional(),
 });
 
 export const LineupDetailsSchema = z.object({

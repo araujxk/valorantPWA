@@ -42,7 +42,18 @@ export default function LineupCreator({
 
   // Coordinates
   const [minimapMark, setMinimapMark] = useState({ x: 0.5, y: 0.5 });
+  const [standMark, setStandMark] = useState<{ x: number; y: number } | undefined>(undefined);
   const [minimapAngle, setMinimapAngle] = useState(0);
+  const [activePinTab, setActivePinTab] = useState<'player' | 'target'>('player');
+
+  const handlePinPlace = (x: number, y: number) => {
+    if (activePinTab === 'player') {
+      setStandMark({ x, y });
+      setActivePinTab('target');
+    } else {
+      setMinimapMark({ x, y });
+    }
+  };
   
   // Error state
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
@@ -137,7 +148,8 @@ export default function LineupCreator({
             videoId: youtubeId.trim() || "dQw4w9WgXcQ", // Roll default safe YouTube link if empty
             startSeconds: 0
           },
-          minimapMark: { ...minimapMark, angle: minimapAngle }
+          minimapMark: { ...minimapMark, angle: minimapAngle },
+          standMark: standMark
         }
       }
     };
@@ -382,27 +394,73 @@ export default function LineupCreator({
             <div className="bg-slate-950/40 p-4 border border-slate-800/80 rounded-2xl md:col-span-2">
               <span className="flex items-center gap-1.5 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                 <Compass className="w-4 h-4 text-red-500" />
-                <span>Indica Localização de Impacto no Mapa</span>
+                <span>Marcação no Mapa Táctico</span>
               </span>
-              <p className="text-[11px] text-slate-500 mb-4 leading-normal">
-                Clica no minimapa abaixo correspondente para plotar a posição exacta onde o projéctil deve de fato cair.
+              <p className="text-[11px] text-slate-500 mb-3 leading-normal">
+                Define onde o jogador se posiciona (azul) e onde a habilidade pousa (vermelho).
               </p>
+
+              {/* Pin Selection Tabs */}
+              <div className="flex gap-2 mb-3 bg-slate-900/60 p-1 rounded-xl border border-slate-800/80">
+                <button
+                  type="button"
+                  onClick={() => setActivePinTab('player')}
+                  className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    activePinTab === 'player'
+                      ? 'bg-blue-600/20 border border-blue-500 text-blue-400 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-350 hover:bg-slate-800/40 border border-transparent'
+                  }`}
+                >
+                  <span className="w-2 h-2 rounded-full bg-blue-500 shadow-sm" />
+                  <span>📍 Pos. Jogador</span>
+                  {standMark && (
+                    <span className="text-[9px] opacity-75 font-mono">({standMark.x.toFixed(2)}, {standMark.y.toFixed(2)})</span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActivePinTab('target')}
+                  className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    activePinTab === 'target'
+                      ? 'bg-red-600/20 border border-red-500 text-red-400 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-350 hover:bg-slate-800/40 border border-transparent'
+                  }`}
+                >
+                  <span className="w-2 h-2 rounded-full bg-red-500 shadow-sm" />
+                  <span>🎯 Alvo Habilidade</span>
+                  <span className="text-[9px] opacity-75 font-mono">({minimapMark.x.toFixed(2)}, {minimapMark.y.toFixed(2)})</span>
+                </button>
+              </div>
+
+              {standMark && (
+                <div className="flex justify-end mb-2">
+                  <button
+                    type="button"
+                    onClick={() => { setStandMark(undefined); setActivePinTab('player'); }}
+                    className="text-[10px] text-slate-500 hover:text-red-400 transition"
+                  >
+                    × Limpar Posição do Jogador
+                  </button>
+                </div>
+              )}
 
               <ZoomableMinimap
                 src={MAPS_LIST.find(m => m.id === selectedMapId)?.minimapUrl || ''}
                 mapName={selectedMapId}
                 pin={minimapMark}
+                standPin={standMark}
                 angle={minimapAngle}
-                onPinPlace={(x, y) => setMinimapMark({ x, y })}
+                onPinPlace={handlePinPlace}
                 onAngleChange={setMinimapAngle}
                 abilityId={selectedAbility}
+                activePinMode={activePinTab}
                 className="aspect-square w-full"
               />
 
               {/* Coord readout */}
-              <div className="flex justify-center gap-4 mt-3 font-mono text-[10px] text-slate-500">
-                <span>COORD X: <strong className="text-slate-300">{minimapMark.x}</strong></span>
-                <span>COORD Y: <strong className="text-slate-300">{minimapMark.y}</strong></span>
+              <div className="flex justify-between items-center gap-2 mt-3 font-mono text-[9px] text-slate-500 border-t border-slate-900 pt-2 px-1">
+                <span>🔵 Jogador: <strong className="text-slate-400">{standMark ? `${standMark.x}, ${standMark.y}` : "Não marcado"}</strong></span>
+                <span>🔴 Alvo: <strong className="text-slate-400">{minimapMark.x}, {minimapMark.y}</strong></span>
               </div>
             </div>
 

@@ -267,6 +267,7 @@ export default function LineupDetail({ lineup, onClose, inline = false, isBookma
                src={lineup.map.minimap}
                mapName={lineup.map.name}
                pin={mapX > 0 && mapY > 0 ? { x: mapX, y: mapY } : undefined}
+               standPin={lineup.lineup.media.standMark}
                angle={lineup.lineup.media.minimapMark?.angle}
                abilityId={lineup.lineup.ability}
                className="w-full aspect-square"
